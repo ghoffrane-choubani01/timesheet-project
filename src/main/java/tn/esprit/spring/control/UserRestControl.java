@@ -21,8 +21,8 @@ public class UserRestControl {
     }
 
     @GetMapping("/retrieve-user/{user-id}")
-    public User retrieveUser(@PathVariable("user-id") Long userId) {
-        return userService.retrieveUser(userId);
+    public User retrieveUser(@PathVariable("user-id") String id) {
+        return userService.retrieveUser(id);
     }
 
     @PostMapping("/add-user")
@@ -31,12 +31,12 @@ public class UserRestControl {
     }
 
     @DeleteMapping("/remove-user/{user-id}")
-    public void removeUser(@PathVariable("user-id") Long userId) {
-        userService.removeUser(userId);
+    public void deleteUser(@PathVariable("user-id") String id) {
+        userService.deleteUser(id);
     }
 
     @PutMapping("/modify-user")
-    public User modifyUser(@RequestBody User u) {
-        return userService.modifyUser(u);
+    public User updateUser(@RequestBody User u) {
+        return userService.updateUser(u);
     }
 }
